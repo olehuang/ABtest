@@ -36,7 +36,7 @@ Example response:
 #I assume I'm using Python and FastAPI to connect the front-end and back-end.
 
 
-comparisons=[{"comparison_id":1, "review_a":..., "review_b":..., "model_a":..,"model_b":...},{...},{...},...]
+comparisons=[{"comparison_id":1, "review_a":..., "review_b":..., "model_a":...,"model_b":...},{...},{...},...]
 
 class ComparisonResponse(BaseModel):
     comparison_id:int
@@ -48,7 +48,7 @@ def get_Comparsion():
     comparison_id=random.choice()
     try:
         ...
-        return{"comparison_id":comparison_id,  "review_a":review_a, "review_b":review_b}
+        return{"comparison_id":comparison_id,  "review_a":"review_a", "review_b":"review_b"}
     except:
         ...
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -66,7 +66,7 @@ Backend must: - Store the vote - Return the updated votes
 #Answer:
 modelVotes={
     "model_a": {"wins":0, "lose":0,"tie":0},
-    ...
+    "model_b": {"wins":0, "lose":0,"tie":0},
 }
 
 class VoteRequest(BaseModel):
